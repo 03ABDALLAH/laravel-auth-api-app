@@ -21,10 +21,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Route::get('contacts', 'ContactController@index');
 
-Route::group(['middleware' => ['auth:sanctum']], function(){
+/*Route::group(['middleware' => ['auth:sanctum']], function(){
     Route::apiResource('contacts', 'ContactController');
     Route::get('profile', 'UserController@profile');
     Route::get('logout', 'UserController@logout');
 });
 Route::post('register', 'UserController@register');
-Route::post('login', 'UserController@login');
+Route::post('login', 'UserController@login');*/
+
+
+
+Route::post('login', 'AuthController@login');
+Route::post('logout', 'AuthController@logout');
+Route::post('refresh', 'AuthController@refresh');
+Route::post('me', 'AuthController@me');
